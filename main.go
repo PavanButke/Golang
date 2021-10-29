@@ -18,7 +18,7 @@ func main() {
 	isHistory := false
 	historyStr := ""
 	history := widget.NewLabel(historyStr)
-	var historyArr [10]string
+	var historyArr []string
 
 	hisBtn := widget.NewButton("MRC", func() {
 
