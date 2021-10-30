@@ -25,24 +25,24 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var picsArr []string
-	picsArr = make([]string, 5, 8)
+	Tabs := container.NewAppTabs()
+
 
 	for _, file := range files {
 		fmt.Println(file.Name(), file.IsDir())
 
 		if !file.IsDir() {
 			extension := strings.Split(file.Name(), ".")[1]
+			image.
 			if extension == "png" || extension == "jpeg" {
-				picsArr = append(picsArr, root_src+"\\"+file.Name())
+				image := canvas.NewImageFromFile( root_src+"/"+file.Name())
+				image.FillMode= canvas.ImageFillOriginal
+				Tabs.Append(container.NewTabItem(file.Name(),image))
 			}
 		}
 	}
+	Tabs.SetTabLocation(container.TabLocationLeading)
 
-	Tabs := container.NewAppTabs(
-		container.NewTabItem("Image1", canvas.NewImageFromFile(picsArr[3])),
-		container.NewTabItem("Tab 2", widget.NewLabel("World!")),
-	)
 	wdw.SetContent(Tabs)
 
 	wdw.ShowAndRun()
