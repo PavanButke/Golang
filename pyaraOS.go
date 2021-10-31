@@ -3,8 +3,8 @@ package main
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
-	"fyne.io/fyne/v2/internal/widget"
 	"fyne.io/fyne/v2/theme"
+	"fyne.io/fyne/v2/widget"
 )
 
 var myApp fyne.App = app.New()
@@ -31,7 +31,7 @@ func main() {
 
 	btn2 = widget.NewButtonWindowIcon("Calculator ", theme.ComputerIcon(), func() {
 
-		showCalcApp()
+		showCalc()
 	})
 
 }
