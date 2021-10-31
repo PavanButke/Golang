@@ -30,8 +30,8 @@ func main() {
 		fmt.Println(err)
 	}
 
-	img := canvas.NewImageFromFile("index.jpg")
-	img.FillMode = canvas.ImageFillContain
+	img1 := canvas.NewImageFromFile("index.jpg")
+	img1.FillMode = canvas.ImageFillOriginal
 
 	weather, err := UnmarshalWeather(body)
 	if err != nil {
@@ -49,7 +49,7 @@ func main() {
 	wdw.SetContent(
 		container.NewVBox(
 			label1,
-			img,
+			img1,
 			label2,
 			label3,
 			label4,
