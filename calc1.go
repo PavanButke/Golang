@@ -3,7 +3,7 @@ package main
 import (
 	"strconv"
 
-	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 	"github.com/Knetic/govaluate"
@@ -11,8 +11,8 @@ import (
 
 func showCalcApp() {
 
-	calc := app.New()
-	w := calc.NewWindow("Calcy")
+	// calc := app.New()
+	// w := calc.NewWindow("Calcy")
 	output := ""
 	input := widget.NewLabel("Choko Choko Rokdo")
 	isHistory := false
@@ -162,7 +162,7 @@ func showCalcApp() {
 		input.SetText(output)
 	})
 
-	w.SetContent(container.NewVBox(
+	calcContainer := container.NewVBox(container.NewVBox(
 		input,
 		history,
 		container.NewGridWithColumns(1,
@@ -205,7 +205,8 @@ func showCalcApp() {
 				eqlBtn,
 			),
 		),
-	))
+	),
+	)
 
 	// myWindo.SetContent(container.NewVBox(
 	// 	history,
@@ -251,6 +252,13 @@ func showCalcApp() {
 	// ))
 	// //
 	// myWindo.ShowAndRun()
+	w := myApp.NewWindow("calc")
 
-	w.ShowAndRun()
+	w.Resize(fyne.NewSize(500, 280))
+
+	w.SetContent(
+		container.NewBorder(DeskBtn, nil, nil, calcContainer),
+	)
+
+	w.Show()
 }
