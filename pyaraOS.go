@@ -10,7 +10,7 @@ import (
 )
 
 var myApp fyne.App = app.New()
-var myWindow fyne.Window = myApp.NewWindow("Windows ki Chutti")
+var myWindow fyne.Window = myApp.NewWindow("Windows12")
 
 var btn1 fyne.Widget
 var btn2 fyne.Widget

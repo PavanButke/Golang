@@ -13,7 +13,7 @@ import (
 	"fyne.io/fyne/v2/container"
 )
 
-func showWeatherApp(wdw fyne.Window) {
+func showWeatherApp(w fyne.Window) {
 	// myapp := app.New()
 	// wdw := myapp.NewWindow("Weather")
 	// wdw.Resize(fyne.NewSize(500, 359))
@@ -29,7 +29,7 @@ func showWeatherApp(wdw fyne.Window) {
 		fmt.Println(err)
 	}
 
-	img1 := canvas.NewImageFromFile("index.jpg")
+	img1 := canvas.NewImageFromFile("/config/Desktop/Golang/OS/index.jpg")
 	img1.FillMode = canvas.ImageFillOriginal
 
 	weather, err := UnmarshalWeather(body)
@@ -41,9 +41,9 @@ func showWeatherApp(wdw fyne.Window) {
 
 	label1.TextStyle = fyne.TextStyle{Bold: true}
 
-	label2 := canvas.NewText(fmt.Sprintf("Des %s", weather.Sys.Country), color.White)
-	label3 := canvas.NewText(fmt.Sprintf("Tej Hawa %2f", weather.Wind.Speed), color.Opaque)
-	label4 := canvas.NewText(fmt.Sprintf("Garmi %2f", weather.Main.Temp), color.Opaque)
+	label2 := canvas.NewText(fmt.Sprintf("Des %s", weather.Sys.Country), color.Black)
+	label3 := canvas.NewText(fmt.Sprintf("Tej Hawa %2f", weather.Wind.Speed), color.Black)
+	label4 := canvas.NewText(fmt.Sprintf("Garmi %2f", weather.Main.Temp), color.Black)
 
 	weatherContainer := container.NewVBox(
 		label1,
@@ -54,8 +54,8 @@ func showWeatherApp(wdw fyne.Window) {
 		container.NewGridWithColumns(1),
 	)
 
-	wdw.SetContent(container.NewBorder(panelContent, nil, nil, nil, weatherContainer))
-	wdw.Show()
+	w.SetContent(container.NewBorder(panelContent, nil, nil, nil, weatherContainer))
+	w.Show()
 
 }
 
